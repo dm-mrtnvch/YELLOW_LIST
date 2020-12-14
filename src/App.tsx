@@ -4,20 +4,27 @@ import './App.css';
 
 
 function App() {
+    console.log('Appf rendering')
     return (
         <div className="App">
-            This is APP compnent
+            <AppTitle/>
             <Rating/>
             <Accordion/>
+            <Rating/>
         </div>
     );
 }
 
+function AppTitle() {
+    console.log('AppTitle rendering')
+    return <div>This is APP component</div>
+}
+
 
 function Rating() {
+    console.log('Rating rendering')
     return (
         <div>
-            <Star/>
             <Star/>
             <Star/>
             <Star/>
@@ -29,11 +36,13 @@ function Rating() {
 
 
 function Star() {
+    console.log('Star rendering')
     return <div>star</div>
 }
 
 
 function Accordion() {
+    console.log('Accordion rendering')
     return (
         <div>
             <h3>Меню</h3>
