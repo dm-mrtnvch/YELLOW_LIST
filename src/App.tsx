@@ -23,6 +23,7 @@ function Rating() {
             <Star/>
             <Star/>
             <Star/>
+            <Star/>
         </div>
     )
 }
