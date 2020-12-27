@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from './components/Accordion';
-import {Rating} from './components/Rating/Rating';
+import {Rating, RatingValueType} from './components/Rating/Rating';
 import OnOff from './components/OnOff/OnOff';
 import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
 import UncontrolledRating from './components/UncontrolledRating/UncontrolledRating';
@@ -9,6 +9,10 @@ import UncontrolledRating from './components/UncontrolledRating/UncontrolledRati
 
 function App() {
     console.log('App rendering')
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(5)
+
+
     return (
         <div className="App">
             <OnOff/>
@@ -18,7 +22,7 @@ function App() {
             <Accordion titleValue={'Menu'} collapsed={false}/>
 
             <UncontrolledRating/>
-            <Rating value={}/>
+            <Rating value={ratingValue} onClick={setRatingValue }/>
 
             {/*<PageTitle title={'This is APP component'}/>*/}
             {/*Article 1*/}
