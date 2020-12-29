@@ -7,22 +7,30 @@ import UncontrolledAccordion from './components/UncontrolledAccordion/Uncontroll
 import UncontrolledRating from './components/UncontrolledRating/UncontrolledRating';
 
 
+
+
 function App() {
     console.log('App rendering')
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(5)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    let [switchOn, setSwitchOn] = useState<boolean>(false)
 
 
     return (
         <div className="App">
-            <OnOff/>
-
+            <OnOff on={switchOn} onChange={(on)=>{setSwitchOn(on)}}/>
 
             <UncontrolledAccordion titleValue={'Menu'}/>
-            <Accordion titleValue={'Menu'} collapsed={false}/>
+
+            <Accordion titleValue={'Menu'}
+                       collapsed={accordionCollapsed}
+                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
+
 
             <UncontrolledRating/>
-            <Rating value={ratingValue} onClick={setRatingValue }/>
+
+            <Rating value={ratingValue} onClick={setRatingValue}/>
 
             {/*<PageTitle title={'This is APP component'}/>*/}
             {/*Article 1*/}
