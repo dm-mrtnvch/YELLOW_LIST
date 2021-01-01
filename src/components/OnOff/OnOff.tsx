@@ -6,7 +6,7 @@ type OnOffType = {
 }
 
 
-function OnOff (props: OnOffType) {
+export function OnOff (props: OnOffType) {
 
     let [on, setOn] = useState(false);
 
@@ -40,5 +40,3 @@ function OnOff (props: OnOffType) {
         <div style={indicatorStyle}></div>
     </div>
 }
-
-export default OnOff;

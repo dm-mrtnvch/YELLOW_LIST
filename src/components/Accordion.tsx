@@ -6,7 +6,7 @@ type AccordionType = {
     onChange: () => void
 }
 
-function Accordion(props:AccordionType) {
+export function Accordion(props:AccordionType) {
     console.log('Accordion rendering')
     return (
         <div>
