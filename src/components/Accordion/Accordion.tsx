@@ -21,7 +21,7 @@ export type AccordionType = {
     /**
      * optional Header's color
      */
-    color: string
+    color?: string
  }
 
 export function Accordion(props:AccordionType) {
