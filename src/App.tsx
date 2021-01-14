@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from './components/Accordion';
+import {Accordion} from './components/Accordion/Accordion';
 import {Rating, RatingValueType} from './components/Rating/Rating';
-import OnOff from './components/OnOff/OnOff';
-import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
+import {OnOff} from './components/OnOff/OnOff';
+import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
 import UncontrolledRating from './components/UncontrolledRating/UncontrolledRating';
 
 
@@ -25,10 +25,20 @@ function App() {
 
             <Accordion titleValue={'Menu'}
                        collapsed={accordionCollapsed}
-                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}/>
+                       onChange={() => {setAccordionCollapsed(!accordionCollapsed)}}
+                       items={[
+                           {title: 'Dimych', value: 1},
+                           {title: 'Valera', value: 2},
+                           {title: 'Artem', value: 3},
+                           {title: 'Viktor', value: 4}
+
+                       ]}
+                       onClick={(value) => {
+                           alert(`user with ID ${value} should be happy`)
+                       }}
+            />
 
 
-            <UncontrolledRating/>
 
             <Rating value={ratingValue} onClick={setRatingValue}/>
 

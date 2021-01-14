@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
-import UncontrolledAccordion from './UncontrolledAccordion';
+import React from 'react';
 import {action} from '@storybook/addon-actions';
+import {UncontrolledAccordion} from './UncontrolledAccordion';
 
-export default {
-    title: 'UncontrolledAccordion',
-    component: UncontrolledAccordion    ,
+export default  {
+    title: 'UncontrolledAccordion stories',
+    component: UncontrolledAccordion
 }
 
-const callback = action('Accordion mode change event')
-
 export const ModeChanging = () => {
-    return UncontrolledAccordion titleValue={'Users'} />
+    return <UncontrolledAccordion titleValue={'Users'}/>
 }
