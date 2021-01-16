@@ -31,7 +31,6 @@ function App() {
                            {title: 'Valera', value: 2},
                            {title: 'Artem', value: 3},
                            {title: 'Viktor', value: 4}
-
                        ]}
                        onClick={(value) => {
                            alert(`user with ID ${value} should be happy`)
