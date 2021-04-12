@@ -1,6 +1,8 @@
-import {StateType, reducer} from './Reducer'
+import {StateType, reducer, TOGGLE_COLLAPSED} from './Reducer'
+
 
 test('reducer should change value to oposite one', () => {
+
 
     const state: StateType = {
         collapsed: false
@@ -19,7 +21,7 @@ test('collapsed should be true', () => {
 
     const newState = reducer(state, {type: TOGGLE_COLLAPSED})
 
-    expect(newState.collapsed).toBe(false)
+    expect(newState.collapsed).toBe(true)
 })
 
 test('reducer should show error', () => {

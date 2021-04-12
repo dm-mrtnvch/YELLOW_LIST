@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React,  {useEffect, useState, KeyboardEvent} from 'react';
 import styles from './Select.module.css'
 import {RatingValueType} from '../Rating/Rating';
 
