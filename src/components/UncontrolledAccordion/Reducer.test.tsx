@@ -5,12 +5,12 @@ test('reducer should change value to oposite one', () => {
 
 
     const state: StateType = {
-        collapsed: false
+        collapsed: true
     }
 
     const newState = reducer(state, {type: TOGGLE_COLLAPSED})
 
-    expect(newState.collapsed).toBe(true)
+    expect(newState.collapsed).toBe(false)
 })
 
 test('collapsed should be true', () => {
