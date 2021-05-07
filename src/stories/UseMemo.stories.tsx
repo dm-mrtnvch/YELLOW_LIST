@@ -1,7 +1,7 @@
-import React, {useMemo, useState} from 'react';
+import React, {useCallback, useMemo, useState} from 'react';
 
 export default {
-    title: "UseMemo"
+    title: 'UseMemo'
 }
 
 
@@ -14,9 +14,9 @@ export const Example1 = () => {
 
     resultA = useMemo(() => {
         let tempResultA = 1
-        for(let i = 1; i <= a; i++){
+        for (let i = 1; i <= a; i++) {
             let fake = 1
-            while(fake < 100000000){
+            while (fake < 100000000) {
                 fake++
                 const fakeTemp = Math.random()
             }
@@ -25,7 +25,7 @@ export const Example1 = () => {
         return tempResultA
     }, [a])
 
-    for(let i = 1; i <= b; i++){
+    for (let i = 1; i <= b; i++) {
         resultB = resultB * i
     }
 
@@ -37,14 +37,12 @@ export const Example1 = () => {
             <div>result for A: {resultA}</div>
             <div>result for B: {resultB}</div>
         </div>
-        </>
+    </>
 
 }
 
 
-
-
-const UsersSecret = (props: {users: Array<string>}) => {
+const UsersSecret = (props: { users: Array<string> }) => {
     console.log('Users')
     return <div>
         {props.users.map((u, i) => <div key={i}>{u}</div>)}
@@ -59,15 +57,17 @@ export const HelpsToReactMemo = () => {
     const [users, setUsers] = useState(['raz', 'dva', 'tri', 'che'])
 
     const newArray = useMemo(() => {
-        return users.filter(u => u.toLowerCase().indexOf('a') > - 1)
+        return users.filter(u => u.toLowerCase().indexOf('a') > -1)
     }, [users])
 
     const addUsers = () => {
-        const newUsers = [...users, 'piat' + new Date().getTime() ]
+        const newUsers = [...users, 'piat' + new Date().getTime()]
         setUsers(newUsers)
     }
 
-    return  <div>
+
+
+    return <div>
         <button onClick={() => setCounter(counter + 1)}>+++</button>
         <button onClick={() => addUsers()}>add user</button>
         {counter}
@@ -76,7 +76,62 @@ export const HelpsToReactMemo = () => {
 
 }
 
+export const LikeUseCallback = () => {
+    console.log('LikeUseCallback')
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(['react', 'js', 'css', 'html'])
 
+    // const newArray = useMemo(() => {
+    //     return books.filter(u => u.toLowerCase().indexOf('a') > -1)
+    // }, [books])
+
+    const addBook = () => {
+        console.log(books)
+        const newBook = [...books, 'angular' + new Date().getTime()]
+        setBooks(newBook)
+    }
+
+    const memoizedAddBook = useMemo(() => {
+        return () => {
+            const newBook = [...books, 'angular' + new Date().getTime()]
+            setBooks(newBook)
+        }
+    }, [books])
+
+    const memoizedAddBook2 = useCallback(() => {
+            const newBook = [...books, 'angular' + new Date().getTime()]
+            setBooks(newBook)
+
+    }, [books])
+
+
+    return <div>
+        <button onClick={() => setCounter(counter + 1)}>+++</button>
+        {/*<button onClick={() => addBook()}>add book</button>*/}
+        {counter}
+        <Book  addBook={memoizedAddBook}/>
+        {books}
+        {/*books={newArray} */}
+    </div>
+
+}
+
+type BookSecretType = {
+    // books: Array<string>
+    addBook: () => void
+}
+// можно типизировать и так:
+// (props: {books: Array<string>, addBook: () => void}
+
+const BookSecret = (props: BookSecretType) => {
+    console.log('Books')
+    return <div>
+        <button onClick={() => props.addBook()}>add book</button>
+        {/*{props.books.map((book, i) => <div key={i}>{book}</div>)}*/}
+    </div>
+}
+
+const Book = React.memo(BookSecret)
 
 
 // import React, {useMemo, useState} from 'react';

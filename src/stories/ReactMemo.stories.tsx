@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import set = Reflect.set;
 
 export default {
     title: "React.memo demo"
@@ -39,7 +40,7 @@ export const Example = () => {
 
 
 
-
+// lesson 10 - 19
 
 
 
