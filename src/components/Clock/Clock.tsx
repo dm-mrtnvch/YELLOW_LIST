@@ -1,11 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-type PropsType = {
-
-}
-
-
-
+type PropsType = {}
 
 export const Clock: React.FC<PropsType> = (props) => {
 
